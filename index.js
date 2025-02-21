@@ -1,5 +1,21 @@
 const express = require('express');
 const { resolve } = require('path');
+const mongooes = require("mongoose")
+require("dotenv").config()
+
+
+let mongoUrl=process.env.mongo_url
+
+
+mongooes.connect(mongoUrl)
+.then((res)=>{
+  console.log("Connected to database")
+})
+.catch((err)=>{
+  console.log("`Error connecting to database",err)
+})
+
+
 
 const app = express();
 const port = 3010;
